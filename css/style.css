@@ -187,25 +187,47 @@ body{
   color: #B1B1B1;
 }
 
+
+/* body of chat */
 .body-active-chat{
-  height: 80%;
+  height: calc(100% - 140px);
   background-image: url("../img/mine.jpg");
   overflow-y: scroll;
   display: flex;
 }
 
-.body-active-chat .received{
+.body-active-chat .left{
   width: 50%;
   height: 100%;
-  background-color: red;
 }
 
-.body-active-chat .sent{
+.body-active-chat .left .received{
+  background-color: white;
+}
+
+.body-active-chat .left .received,
+.body-active-chat .right .sent{
+  margin: 70px;
+  padding: 10px;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+}
+
+.body-active-chat .left .received small,
+.body-active-chat .right .sent small{
+  align-self: end;
+}
+
+.body-active-chat .right{
   width: 50%;
   height: 100%;
-  background-color: green;
 }
 
+.body-active-chat .right .sent{
+  background-color: rgb(129, 177, 114);
+}
+/* /body of chat */
 
 
 
@@ -215,11 +237,32 @@ body{
 
 
 
-
+/* typing bar */
 .typing-bar{
-  height: 10%;
-  background-color: brown;
+  /* position: sticky;
+  bottom: 0; */
+  height: 70px;
 }
+
+.typing-bar .text-sb{
+  height: 70px;
+  background-color: #F3EEEA;
+  display: flex;
+  align-items: center;
+}
+
+.typing-bar .text-sb i{
+  font-size: 22px;
+  margin: 0 20px;
+  color: #B1B1B1;
+}
+
+.typing-bar .text-sb input{
+  flex-grow: 1;
+  padding: 12px;
+}
+/* /typing bar */
+
 
 
 
