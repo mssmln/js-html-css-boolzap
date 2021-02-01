@@ -35,16 +35,31 @@ body{
   height: 10%;
   background-color: red;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .header-left img{
   width: 60px;
   border-radius: 50%;
+  vertical-align: middle;
+  margin-left: 5px;
 }
 
-.header-left .profile-icons{
-  flex-direction: right;
+.header-left h4{
+  flex-grow: 1;
+  font-size: 20px;
 }
+
+
+.header-left .profile-icons{
+  margin-right: 10px;
+}
+
+.header-left .profile-icons i{
+  font-size: 22px;
+}
+
 
 .alert-notifiche{
   height: 10%;
