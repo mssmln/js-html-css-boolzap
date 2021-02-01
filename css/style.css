@@ -10,8 +10,77 @@ body{
 }
 
 .container{
+  display: flex;
   margin: 30px auto;
   width: 1300px;
   height: 700px;
   background-color: red;
 }
+
+/* left panel */
+
+.left-panel{
+  width: 35%;
+  height: 100%;
+  background-color: blue;
+}
+
+.right-panel{
+  width: 65%;
+  height: 100%;
+  background-color: green;
+}
+
+.header-left{
+  height: 10%;
+  background-color: red;
+  display: flex;
+}
+
+.header-left img{
+  width: 60px;
+  border-radius: 50%;
+}
+
+.header-left .profile-icons{
+  flex-direction: right;
+}
+
+.alert-notifiche{
+  height: 10%;
+  background-color: orange;
+}
+
+.search-chat{
+  height: 10%;
+  background-color: pink;
+}
+
+.chats{
+  height: 70%;
+  background-color: purple;
+}
+
+/* /left panel */
+
+
+
+/* right panel */
+.active-chat{
+  height: 10%;
+  background-color: grey;
+}
+
+.body-active-chat{
+  height: 80%;
+  background-color: azure;
+}
+
+.typing-bar{
+  height: 10%;
+  background-color: brown;
+}
+
+
+
+/* /right panel */
