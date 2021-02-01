@@ -7,6 +7,7 @@
 body{
   background-image: linear-gradient(to bottom, #009688 0px, #009688 15vh, #dddbd1 15vh, #d2dbdc 100%);
   height: 100vh;
+  overflow: hidden;
 }
 
 .container{
@@ -33,7 +34,7 @@ body{
 
 .header-left{
   height: 10%;
-  background-color: red;
+  background-color: #EAEAEA;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -49,6 +50,7 @@ body{
 .header-left h4{
   flex-grow: 1;
   font-size: 20px;
+  margin-left: 5px;
 }
 
 
@@ -58,23 +60,85 @@ body{
 
 .header-left .profile-icons i{
   font-size: 22px;
+  margin: 0 5px;
+  color: #B1B1B1;
 }
 
 
 .alert-notifiche{
   height: 10%;
-  background-color: orange;
+  background-color: #8EDAFC;
+  display: flex;
+  align-items: center;
 }
 
+.alert-notifiche .bell{
+  margin-left: 20px;
+}
+
+.alert-notifiche .bell i{
+  padding: 15px;
+  font-size: 25px;
+  border-radius: 50%;
+  background-color: #F2FBFF;
+  color: #8EDAFC;
+}
+
+.bell-text{
+  margin-left: 10px;
+}
+
+
+.bell-text h4{
+  font-size: 18px;
+}
+
+.bell-text h6{
+  font-size: 16px;
+  color: #B1B1B1;
+  text-decoration: underline;
+}
+
+/* search */
 .search-chat{
-  height: 10%;
   background-color: pink;
+  display: flex;
 }
 
+.search-chat .search{
+  padding: 5px;
+  display: flex;
+}
+
+.search-chat .search i{
+  background-color: red;
+  padding: 10px 20px;
+  font-size: 20px;
+  background-color: #FFFFFF;
+}
+
+.input{
+  padding: 5px;
+  background-color: #FFFFFF;
+}
+
+.input input{
+  padding: 5px;
+  height: 100%;
+  width: 360px;
+}
+/* /search */
+
+
+
+
+/* chats */
 .chats{
   height: 70%;
   background-color: purple;
 }
+/* /chats */
+
 
 /* /left panel */
 
