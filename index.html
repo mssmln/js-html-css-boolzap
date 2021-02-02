@@ -23,7 +23,6 @@
           <i class="fas fa-comment-alt"></i>
           <i class="fas fa-ellipsis-v"></i>
         </div>
-
       </div>
       <div class="alert-notifiche">
         <div class="bell">
@@ -34,9 +33,6 @@
           <h6>Attiva notifiche desktop</h6>
         </div>
       </div>
-
-
-
       <div class="search-chat">
         <div class="search">
           <i class="fas fa-search"></i>
@@ -51,33 +47,17 @@
       <!-- chats -->
       <div class="chats">
         <ul>
-          <li>
+          <!-- li da test -->
+          <!-- <li>
             <img src="img\avatar_2.jpg" alt="profile-avatar">
             <h4>michele</h4>
-          </li>
-          <li v-for="contatto in contacts">
-            {{ contatto.avatar + contatto.name }}
-          </li>
-          <!-- <li>
-            <img src="img\avatar_3.jpg" alt="profile-avatar">
-            <h4>fabio</h4>
-          </li>
-          <li>
-            <img src="img\avatar_4.jpg" alt="profile-avatar">
-            <h4>samuele</h4>
-          </li>
-          <li>
-            <img src="img\avatar_5.jpg" alt="profile-avatar">
-            <h4>luisa</h4>
-          </li>
-          <li>
-            <img src="img\avatar_6.jpg" alt="profile-avatar">
-            <h4>max</h4>
-          </li>
-          <li>
-            <img src="img\avatar_7.jpg" alt="profile-avatar">
-            <h4>alida</h4>
           </li> -->
+          <!-- /li da test -->
+
+          <li v-for="contatto in contacts">
+            <img :src="'img/avatar' + contatto.avatar + '.jpg'">
+            <h4>{{ contatto.name }}</h4>
+          </li>
         </ul>
       </div>
       <!-- /chats -->
@@ -94,16 +74,12 @@
         <span>
           <h4>Michele</h4>
           <h6>Ultimo accesso oggi alle</h6>
-
         </span>
         <div class="active-chat-icons">
           <i class="fas fa-search"></i>
           <i class="fas fa-paperclip"></i>
           <i class="fas fa-ellipsis-v"></i>
         </div>
-
-
-
       </div>
       <div class="body-active-chat">
         <div class="messages">
@@ -114,7 +90,7 @@
             </small>
           </div>
           <div class="received">
-            <p>Tutto fatto!</p>
+            <p>Tutto fatto!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
             <small>
               10/01/2020 16:15:22
             </small>
@@ -166,28 +142,24 @@
             <small>
               10/01/2020 16:15:22
             </small>
-          </div>
-
-          <div class="sent">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-
           </div>
           <div class="sent">
             <p>Tutto fatto!</p>
             <small>
               10/01/2020 16:15:22
             </small>
-
           </div>
           <div class="sent">
             <p>Tutto fatto!</p>
             <small>
               10/01/2020 16:15:22
             </small>
-
+          </div>
+          <div class="sent">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
           </div>
           <div class="received">
             <p>Tutto fatto!</p>
@@ -200,31 +172,22 @@
             <small>
               10/01/2020 16:15:22
             </small>
-
           </div>
-
         </div>
       </div>
 
-
+      <!-- typing bar -->
       <div class="typing-bar">
         <div class="text-sb">
           <i class="far fa-smile"></i>
           <input type="text" placeholder="Scrivi un messaggio">
           <i class="fas fa-microphone"></i>
         </div>
-
-
       </div>
-
+      <!-- /typing bar -->
     </div>
     <!-- /right panel -->
-
   </div>
-
-
-
-
 
 
   <script src="js/script.js" charset="utf-8"></script>

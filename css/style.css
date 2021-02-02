@@ -201,6 +201,9 @@ body{
 
 .messages{
   padding: 70px;
+  word-break: break-all;
+  /* min-width: 40%;
+  max-width: 60%; */
 }
 
 .body-active-chat .received{
