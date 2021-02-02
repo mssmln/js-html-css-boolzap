@@ -8,13 +8,16 @@ body{
   background-image: linear-gradient(to bottom, #009688 0px, #009688 15vh, #dddbd1 15vh, #d2dbdc 100%);
   height: 100vh;
   overflow: hidden;
+  /* display: flex; */
+  position: relative;
 }
 
 .container{
   display: flex;
   margin: 30px auto;
   width: 1300px;
-  height: 700px;
+  /* rispetto al body  */
+  height: 95%;
   background-color: red;
 }
 
@@ -22,6 +25,7 @@ body{
 
 .left-panel{
   width: 35%;
+  height: 100%;
   background-color: blue;
 }
 
@@ -193,38 +197,36 @@ body{
   height: calc(100% - 140px);
   background-image: url("../img/mine.jpg");
   overflow-y: scroll;
-  display: flex;
 }
 
-.body-active-chat .left{
-  width: 50%;
-  height: 100%;
+.messages{
+  padding: 70px;
 }
 
-.body-active-chat .left .received{
+.body-active-chat .received{
   background-color: white;
 }
 
-.body-active-chat .left .received,
-.body-active-chat .right .sent{
-  margin: 70px;
+.body-active-chat .received,
+.body-active-chat .sent{
+  margin: 15px;
   padding: 10px;
   border-radius: 5px;
-  display: flex;
-  flex-direction: column;
 }
 
-.body-active-chat .left .received small,
-.body-active-chat .right .sent small{
-  align-self: end;
+.sent{
+  width: 40%;
+  float: right;
+  clear: both;
+}
+.received{
+  width: 40%;
+  float: left;
+  clear: both;
 }
 
-.body-active-chat .right{
-  width: 50%;
-  height: 100%;
-}
 
-.body-active-chat .right .sent{
+.body-active-chat .sent{
   background-color: rgb(129, 177, 114);
 }
 /* /body of chat */
@@ -239,8 +241,6 @@ body{
 
 /* typing bar */
 .typing-bar{
-  /* position: sticky;
-  bottom: 0; */
   height: 70px;
 }
 

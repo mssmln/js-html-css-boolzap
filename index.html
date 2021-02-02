@@ -4,12 +4,13 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
   <link rel="stylesheet" href="css/style.css">
   <title>Boolzap</title>
 </head>
 <body>
-  <div class="container">
+  <div id="app" class="container">
     <!-- left panel -->
     <div class="left-panel">
       <div class="header-left">
@@ -54,7 +55,10 @@
             <img src="img\avatar_2.jpg" alt="profile-avatar">
             <h4>michele</h4>
           </li>
-          <li>
+          <li v-for="contatto in contacts">
+            {{ contatto.avatar + contatto.name }}
+          </li>
+          <!-- <li>
             <img src="img\avatar_3.jpg" alt="profile-avatar">
             <h4>fabio</h4>
           </li>
@@ -73,7 +77,7 @@
           <li>
             <img src="img\avatar_7.jpg" alt="profile-avatar">
             <h4>alida</h4>
-          </li>
+          </li> -->
         </ul>
       </div>
       <!-- /chats -->
@@ -102,7 +106,61 @@
 
       </div>
       <div class="body-active-chat">
-        <div class="left">
+        <div class="messages">
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
           <div class="received">
             <p>Tutto fatto!</p>
             <small>
@@ -110,8 +168,6 @@
             </small>
           </div>
 
-        </div>
-        <div class="right">
           <div class="sent">
             <p>Tutto fatto!</p>
             <small>
@@ -119,10 +175,38 @@
             </small>
 
           </div>
+          <div class="sent">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+
+          </div>
+          <div class="sent">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+
+          </div>
+          <div class="received">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <div class="sent">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+
+          </div>
 
         </div>
-
       </div>
+
+
       <div class="typing-bar">
         <div class="text-sb">
           <i class="far fa-smile"></i>
