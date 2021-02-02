@@ -10,6 +10,7 @@
   <title>Boolzap</title>
 </head>
 <body>
+  <!-- container -->
   <div id="app" class="container">
     <!-- left panel -->
     <div class="left-panel">
@@ -53,8 +54,7 @@
             <h4>michele</h4>
           </li> -->
           <!-- /li da test -->
-
-          <li v-for="contatto in contacts">
+          <li v-for="contatto in contacts" @click="showChat">
             <img :src="'img/avatar' + contatto.avatar + '.jpg'">
             <h4>{{ contatto.name }}</h4>
           </li>
@@ -188,6 +188,7 @@
     </div>
     <!-- /right panel -->
   </div>
+  <!-- /container -->
 
 
   <script src="js/script.js" charset="utf-8"></script>

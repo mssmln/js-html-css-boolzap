@@ -16,23 +16,14 @@ body{
   display: flex;
   margin: 30px auto;
   width: 1300px;
-  /* rispetto al body  */
   height: 95%;
-  background-color: red;
 }
 
-/* left panel */
 
+/* left panel */
 .left-panel{
   width: 35%;
   height: 100%;
-  background-color: blue;
-}
-
-.right-panel{
-  width: 65%;
-  height: 100%;
-  background-color: green;
 }
 
 .header-left,
@@ -42,7 +33,6 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-
   height: 70px;
 }
 
@@ -80,7 +70,6 @@ body{
   display: flex;
   align-items: center;
   padding: 10px;
-
   height: 80px;
 }
 
@@ -111,18 +100,17 @@ body{
   text-decoration: underline;
 }
 
+
 /* search */
 .search-chat{
   background-color: #FAFAFA;
   display: flex;
-
   height: 50px;
 }
 
 .search-chat .search{
   margin: 5px;
   display: flex;
-  /* box-shadow: 1px 1px 1px 1px #9d9d9d; */
 }
 
 .search-chat .search i{
@@ -144,8 +132,6 @@ body{
   width: 360px;
   border: none;
 }
-
-
 /* /search */
 
 
@@ -155,7 +141,6 @@ body{
 .chats{
   background-color: #FFFFFF;
   overflow-y: scroll;
-
   height: calc(100% - 70px - 80px - 50px);
 }
 
@@ -175,13 +160,16 @@ body{
   margin-left: 10px;
 }
 /* /chats */
-
-
 /* /left panel */
 
 
 
 /* right panel */
+.right-panel{
+  width: 65%;
+  height: 100%;
+}
+
 .active-chat{
   border-left: 1px solid rgba(209, 209, 209, 0.65);
 }
@@ -201,13 +189,9 @@ body{
 
 .messages{
   padding: 70px;
-  word-break: break-all;
+  word-break: break-all; /* per mandare a capo la parola se troppo lunga */
   /* min-width: 40%;
   max-width: 60%; */
-}
-
-.body-active-chat .received{
-  background-color: white;
 }
 
 .body-active-chat .received,
@@ -215,37 +199,27 @@ body{
   margin: 15px;
   padding: 10px;
   border-radius: 5px;
+  width: 40%;
+  clear: both;
 }
 
 .sent{
-  width: 40%;
   float: right;
-  clear: both;
-}
-.received{
-  width: 40%;
-  float: left;
-  clear: both;
-}
-
-
-.body-active-chat .sent{
   background-color: rgb(129, 177, 114);
+}
+
+.received{
+  background-color: white;
+  float: left;
 }
 /* /body of chat */
 
 
 
-
-
-
-
-
-
 /* typing bar */
-.typing-bar{
+/* .typing-bar{
   height: 70px;
-}
+} */
 
 .typing-bar .text-sb{
   height: 70px;
@@ -265,8 +239,4 @@ body{
   padding: 12px;
 }
 /* /typing bar */
-
-
-
-
 /* /right panel */
