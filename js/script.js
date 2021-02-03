@@ -3,13 +3,16 @@
 // dall’interlocutore (bianco) assegnando due classi CSS diverse
 // ● Visualizzazione dinamica della lista contatti: tramite l a direttiva v-for, visualizzare nome e immagine di ogni contatto
 // Milestone 2
-// ● Visualizzazione dinamica dei messaggi: tramite la direttiva v-for, visualizzare tutti i
-// messaggi relativi al contatto attivo all’interno del pannello della conversazione
-// ● Click sul contatto mostra la conversazione del contatto cliccato
+// ● Visualizzazione dinamica dei messaggi: t ramite l a direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
+// ● Click sul contatto mostra l a conversazione del contatto cliccato
+// Milestone 3
+// ● Aggiunta di un messaggio: l ’utente scrive un testo nella parte bassa e digitando “enter” i l testo viene aggiunto al thread sopra, come messaggio verde
 
 var app = new Vue ({
   el : '#app',
   data : {
+    // arrayMessage: [], // pusho i nuovi messaggi da input tag
+    newMessage: '', // ci serve per il v-model, andrà sovrascritta
     counter: 0,
     user: {
       name: 'Massimiliano',
@@ -102,14 +105,20 @@ var app = new Vue ({
       },
     ]
   },
+  mounted(){
+
+  },
   methods : {
     showChat(index){
       this.counter = index; // al click su li tag ci mostra il suo index
       console.log(this.counter);
-
-
-
-    }
+    },
+    // sendMessage(){
+    //   this.arrayMessage.push(this.newMessage);
+    //   this.newMessage = ''; // per ripulirla all'invio
+    //   console.log(this.newMessage);
+    //
+    // },
   }
 
 });

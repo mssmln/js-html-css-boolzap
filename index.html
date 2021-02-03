@@ -54,7 +54,7 @@
             <h4>michele</h4>
           </li> -->
           <!-- /li da test -->
-          <li v-for="(contatto,index) in contacts" :class="(index == counter) ? 'active' : ''" @click="showChat(index)">
+          <li v-for="(contatto,index) in contacts" @click="showChat(index)">
             <img :src="'img/avatar' + contatto.avatar + '.jpg'">
             <h4>{{ contatto.name }}</h4>
           </li>
@@ -70,7 +70,7 @@
       <div class="active-chat">
         <div class="profile-avatar">
           <!-- <img src="img\avatar_io.jpg" alt="profile-avatar"> -->
-          <img :src="contacts[counter]">
+          <img :src="'img/avatar' + contacts[counter].avatar + '.jpg'">
         </div>
         <span>
           <h4>Michele</h4>
@@ -84,94 +84,17 @@
       </div>
       <div class="body-active-chat">
         <div class="messages">
-          <div class="received">
-            <p>Tutto fatto!</p>
+          <!-- alternativa con doppio ciclo v-for -->
+          <div v-for="messaggio in contacts[counter].messages" :class="messaggio.status" >
+            <p>{{ messaggio.text }}</p>
             <small>
-              10/01/2020 16:15:22
+              {{ messaggio.date }}
             </small>
           </div>
-          <div class="sent">
-            <p>Tutto fatto!</p>
+          <!-- <div :class="contacts[counter].messages[counter].status" >
+            <p>{{ contacts[counter].messages[counter].text }}</p>
             <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <!-- <div class="received">
-            <p>Tutto fatto!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="sent">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="sent">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="received">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
-          <div class="sent">
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <small>
-              10/01/2020 16:15:22
+              {{ contacts[counter].messages[counter].date }}
             </small>
           </div> -->
         </div>
@@ -181,7 +104,7 @@
       <div class="typing-bar">
         <div class="text-sb">
           <i class="far fa-smile"></i>
-          <input type="text" placeholder="Scrivi un messaggio">
+          <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
           <i class="fas fa-microphone"></i>
         </div>
       </div>
