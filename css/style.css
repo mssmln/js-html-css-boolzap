@@ -174,8 +174,8 @@ body{
   display: inline-block;
   position: absolute;
   right: 0;
-  bottom: 0;
-  margin: 0 15px 10px 0;
+  /* bottom: 0; */ /* se lo attivi lo vedrai solo sul ultimo li, idem per top */
+  margin: 30px 15px 0 0;
   cursor: pointer;
 }
 
@@ -216,6 +216,10 @@ body{
   word-break: break-all; /* per mandare a capo la parola se troppo lunga */
   /* min-width: 40%;
   max-width: 60%; */
+}
+
+.messages small{
+  float: right;
 }
 
 .body-active-chat .received,

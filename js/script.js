@@ -12,6 +12,18 @@ var app = new Vue ({
   el : '#app',
   data : {
     // arrayMessage: [], // pusho i nuovi messaggi da input tag
+    bell: [
+      {
+        family: 'fas',
+        prefix: 'fa-',
+        type: 'bell'
+      },
+      {
+        family: 'fas',
+        prefix: 'fa-',
+        type: 'bell-slash'
+      }
+    ],
     newMessage: '', // ci serve per il v-model, andrà sovrascritta
     counter: 0,
     user: {
@@ -112,6 +124,10 @@ var app = new Vue ({
     showChat(index){
       this.counter = index; // al click su li tag ci mostra il suo index
       console.log(this.counter);
+    },
+    getNotified(){
+      alert('you have enabled desktop notifications');
+
     },
     // sendMessage(){
     //   this.arrayMessage.push(this.newMessage);
