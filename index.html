@@ -16,9 +16,9 @@
     <div class="left-panel">
       <div class="header-left">
         <div class="profile-avatar">
-          <img src="img\avatar_1.jpg" alt="profile-avatar">
+          <img :src="'img/avatar' + user.avatar + '.jpg'" :alt="user.alt">
         </div>
-        <h4>Nome Utente</h4>
+        <h4>{{ user.name }}</h4>
         <div class="profile-icons">
           <i class="fas fa-circle-notch"></i>
           <i class="fas fa-comment-alt"></i>
@@ -54,7 +54,7 @@
             <h4>michele</h4>
           </li> -->
           <!-- /li da test -->
-          <li v-for="contatto in contacts" @click="showChat">
+          <li v-for="(contatto,index) in contacts" :class="(index == counter) ? 'active' : ''" @click="showChat(index)">
             <img :src="'img/avatar' + contatto.avatar + '.jpg'">
             <h4>{{ contatto.name }}</h4>
           </li>
@@ -69,7 +69,8 @@
     <div class="right-panel">
       <div class="active-chat">
         <div class="profile-avatar">
-          <img src="img\avatar_io.jpg" alt="profile-avatar">
+          <!-- <img src="img\avatar_io.jpg" alt="profile-avatar"> -->
+          <img :src="contacts[counter]">
         </div>
         <span>
           <h4>Michele</h4>
@@ -89,7 +90,13 @@
               10/01/2020 16:15:22
             </small>
           </div>
-          <div class="received">
+          <div class="sent">
+            <p>Tutto fatto!</p>
+            <small>
+              10/01/2020 16:15:22
+            </small>
+          </div>
+          <!-- <div class="received">
             <p>Tutto fatto!aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
             <small>
               10/01/2020 16:15:22
@@ -155,12 +162,6 @@
               10/01/2020 16:15:22
             </small>
           </div>
-          <div class="sent">
-            <p>Tutto fatto!</p>
-            <small>
-              10/01/2020 16:15:22
-            </small>
-          </div>
           <div class="received">
             <p>Tutto fatto!</p>
             <small>
@@ -172,7 +173,7 @@
             <small>
               10/01/2020 16:15:22
             </small>
-          </div>
+          </div> -->
         </div>
       </div>
 

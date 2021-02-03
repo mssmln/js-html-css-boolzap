@@ -10,6 +10,12 @@
 var app = new Vue ({
   el : '#app',
   data : {
+    counter: 0,
+    user: {
+      name: 'Massimiliano',
+      avatar: '_io',
+      alt: 'foto-profilo'
+    },
     contacts: [
       {
         name: 'Michele',
@@ -97,8 +103,12 @@ var app = new Vue ({
     ]
   },
   methods : {
-    showChat(){
-      alert('test')
+    showChat(index){
+      this.counter = index; // al click su li tag ci mostra il suo index
+      console.log(this.counter);
+
+
+
     }
   }
 
