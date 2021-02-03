@@ -22,6 +22,10 @@ body{
   height: 95%;
 }
 
+.mouse-over{
+  cursor: pointer;
+}
+
 
 /* left panel */
 .left-panel{
@@ -149,6 +153,7 @@ body{
 
 .chats ul{
   list-style: none;
+  position: relative;
 }
 
 .chats ul li{
@@ -156,6 +161,22 @@ body{
   padding: 10px;
   align-items: center;
   border-bottom: 1px solid rgba(209, 209, 209, 0.65);
+}
+
+.chats ul li:hover{
+  background-color: rgba(89, 89, 89, 0.56);
+}
+
+.chats ul li:hover::after{
+  content: '\f078';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  margin: 0 15px 10px 0;
+  cursor: pointer;
 }
 
 .chats ul li h4{
@@ -204,6 +225,20 @@ body{
   border-radius: 5px;
   width: 40%;
   clear: both;
+  position: relative;
+}
+
+.sent:hover::after,
+.received:hover::after{
+  content: '\f078';
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  display: inline-block;
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 5px 10px 0 0;
+  cursor: pointer;
 }
 
 .sent{

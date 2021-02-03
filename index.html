@@ -16,27 +16,27 @@
     <div class="left-panel">
       <div class="header-left">
         <div class="profile-avatar">
-          <img :src="'img/avatar' + user.avatar + '.jpg'" :alt="user.alt">
+          <img class="mouse-over" :src="'img/avatar' + user.avatar + '.jpg'" :alt="user.alt">
         </div>
         <h4>{{ user.name }}</h4>
         <div class="profile-icons">
-          <i class="fas fa-circle-notch"></i>
-          <i class="fas fa-comment-alt"></i>
-          <i class="fas fa-ellipsis-v"></i>
+          <i class="fas fa-circle-notch mouse-over"></i>
+          <i class="fas fa-comment-alt mouse-over"></i>
+          <i class="fas fa-ellipsis-v mouse-over"></i>
         </div>
       </div>
       <div class="alert-notifiche">
         <div class="bell">
-          <i class="fas fa-bell-slash"></i>
+          <i class="fas fa-bell-slash mouse-over"></i>
         </div>
         <div class="bell-text">
           <h4>Ricevi notifiche di nuovi messaggi</h4>
-          <h6>Attiva notifiche desktop</h6>
+          <h6 class="mouse-over">Attiva notifiche desktop</h6>
         </div>
       </div>
       <div class="search-chat">
         <div class="search">
-          <i class="fas fa-search"></i>
+          <i class="fas fa-search mouse-over"></i>
           <div class="input">
             <input type="text" placeholder="Cerca ho inizia una nuova chat">
           </div>
@@ -54,7 +54,7 @@
             <h4>michele</h4>
           </li> -->
           <!-- /li da test -->
-          <li v-for="(contatto,index) in contacts" @click="showChat(index)">
+          <li class="mouse-over" v-for="(contatto,index) in contacts" @click="showChat(index)">
             <img :src="'img/avatar' + contatto.avatar + '.jpg'">
             <h4>{{ contatto.name }}</h4>
           </li>
@@ -70,42 +70,35 @@
       <div class="active-chat">
         <div class="profile-avatar">
           <!-- <img src="img\avatar_io.jpg" alt="profile-avatar"> -->
-          <img :src="'img/avatar' + contacts[counter].avatar + '.jpg'">
+          <img class="mouse-over" :src="'img/avatar' + contacts[counter].avatar + '.jpg'">
         </div>
         <span>
           <h4>Michele</h4>
           <h6>Ultimo accesso oggi alle</h6>
         </span>
         <div class="active-chat-icons">
-          <i class="fas fa-search"></i>
-          <i class="fas fa-paperclip"></i>
-          <i class="fas fa-ellipsis-v"></i>
+          <i class="fas fa-search mouse-over"></i>
+          <i class="fas fa-paperclip mouse-over"></i>
+          <i class="fas fa-ellipsis-v mouse-over"></i>
         </div>
       </div>
       <div class="body-active-chat">
         <div class="messages">
-          <!-- alternativa con doppio ciclo v-for -->
           <div v-for="messaggio in contacts[counter].messages" :class="messaggio.status" >
             <p>{{ messaggio.text }}</p>
             <small>
               {{ messaggio.date }}
             </small>
           </div>
-          <!-- <div :class="contacts[counter].messages[counter].status" >
-            <p>{{ contacts[counter].messages[counter].text }}</p>
-            <small>
-              {{ contacts[counter].messages[counter].date }}
-            </small>
-          </div> -->
         </div>
       </div>
 
       <!-- typing bar -->
       <div class="typing-bar">
         <div class="text-sb">
-          <i class="far fa-smile"></i>
+          <i class="far fa-smile mouse-over"></i>
           <input type="text" placeholder="Scrivi un messaggio" v-model="newMessage" @keyup.enter="sendMessage">
-          <i class="fas fa-microphone"></i>
+          <i class="fas fa-microphone mouse-over"></i>
         </div>
       </div>
       <!-- /typing bar -->
