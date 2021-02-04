@@ -158,7 +158,8 @@ var app = new Vue ({
     },
     filtraChat(){
       this.contacts.forEach((item, i) => {
-        (item.name.includes(this.newSearch)) ? item.visible = true : item.visible = false ;
+        // con lower e upper ci assicuriamo di filtrare gli stessi risulati scrivendo in entrambi i modi
+        (item.name.toLowerCase().includes(this.newSearch) || item.name.toUpperCase().includes(this.newSearch)) ? item.visible = true : item.visible = false ;
       });
     },
   }
