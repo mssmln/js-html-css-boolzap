@@ -13,12 +13,15 @@
 // Milestone 5 - opzionale
 // ● Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato.
 // Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
+// stampiamo l'orario solo l'orario di invio nel messaggio e non tutta la data (che mostreremo solo per i messaggi più vecchi di un giorno!) :calendar:
+// quando il nostro utente ci sta scrivendo la risposta, scriviamo al posto di "Ultimo messaggio..." un bel "Sta scrivendo..."
 
 var app = new Vue ({
   el : '#app',
   data : {
     notificheAttive: false,
     newMessage: '', // ci serve per il v-model, andrà sovrascritta
+    newSearch: '', // ci serve per filtrare le chat con v-model
     counter: 0,
     user: {
       name: 'Massimiliano',
@@ -153,15 +156,11 @@ var app = new Vue ({
         console.log(this.contacts[this.counter].messages);
       }, 1000);
     },
-    // filtraChat(){
-    //   this.contacts[this.counter].name.forEach((item, i) => {
-    //     if (item == 'M') {
-    //       return item;
-    //     }
-    //   });
-    //
-    //
-    // },
+    filtraChat(){
+      this.contacts.forEach((item, i) => {
+        (item.name.includes(this.newSearch)) ? item.visible = true : item.visible = false ;
+      });
+    },
   }
 
 });

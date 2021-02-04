@@ -45,7 +45,7 @@
         <div class="search">
           <i class="fas fa-search "></i>
           <div class="input">
-            <input type="text" placeholder="Cerca ho inizia una nuova chat" >
+            <input type="text" placeholder="Cerca ho inizia una nuova chat" @keyup="filtraChat" v-model="newSearch">
           </div>
         </div>
       </div>
@@ -61,9 +61,15 @@
             <h4>michele</h4>
           </li> -->
           <!-- /li da test -->
-          <li class="mouse-over" v-for="(contatto,index) in contacts" @click="showChat(index)">
+          <!-- con il v-if verrà mostrato li solo se visible corrisponde a true , non serve mettere una classe display none nella condizione grazie a Vue -->
+          <li class="mouse-over" v-for="(contatto,index) in contacts" @click="showChat(index)" v-if="contatto.visible == true">
             <img :src="'img/avatar' + contatto.avatar + '.jpg'">
-            <h4>{{ contatto.name }}</h4>
+            <h4>
+              {{ contatto.name }}
+            </h4>
+            <small>
+              {{ contatto.messages[counter].date }}
+            </small>
           </li>
         </ul>
       </div>
@@ -101,6 +107,9 @@
             <small>
               {{ messaggio.date }}
             </small>
+            <!-- <i class="fas fa-chevron-down">
+
+            </i> -->
           </div>
         </div>
       </div>
