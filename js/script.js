@@ -6,10 +6,13 @@
 // ● Visualizzazione dinamica dei messaggi: t ramite l a direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 // ● Click sul contatto mostra l a conversazione del contatto cliccato
 // Milestone 3
-// ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
-// “enter” il testo viene aggiunto al thread sopra, come messaggio verde
-// ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
-// un “ok” come risposta, che apparirà dopo 1 secondo.
+// ● Aggiunta di un messaggio: l ’utente scrive un testo nella parte bassa e digitando “enter” i l testo viene aggiunto al thread sopra, come messaggio verde
+// ● Risposta dall’interlocutore: a d ogni inserimento di un messaggio, l ’utente riceverà un “ok” come risposta, che apparirà dopo 1 secondo.
+// Milestone 4
+// ● Ricerca utenti: scrivendo qualcosa nell’input a sinistra, vengono visualizzati solo i contatti i l cui nome contiene l e lettere inserite (es, Marco, Matteo Martina -> Scrivo “mar” rimangono solo Marco e Martina)
+// Milestone 5 - opzionale
+// ● Cancella messaggio: cliccando sul messaggio appare un menu a tendina che permette di cancellare il messaggio selezionato.
+// Visualizzazione ora e ultimo messaggio inviato/ricevuto nella lista dei contatti
 
 var app = new Vue ({
   el : '#app',
@@ -127,10 +130,38 @@ var app = new Vue ({
       console.log(this.notificheAttive);
     },
     sendMessage(){
-      this.contacts[this.counter].messages.push(this.newMessage);
-      console.log(this.contacts[this.counter].messages);
+      const typeMessage = { // serve un nuovo oggetto da unirsi assieme agli altri con le stesse chiavi
+        // date: dayjs.localeData, // con dayjs
+        date: moment().format('DD/MM/YYYY h:mm:ss '), // con momentjs
+        text: this.newMessage,
+        status: 'sent'
+      };
+      if (this.newMessage.length > 0) {
+        this.contacts[this.counter].messages.push(typeMessage);
+        console.log(this.contacts[this.counter].messages);
+      }
+      this.newMessage = ''; // per ripulire la input
 
+      setTimeout(() => {
+        const autoMessage = {
+          date: moment().format('DD/MM/YYYY h:mm:ss '),
+          text: 'okay',
+          status: 'received'
+        };
+        console.log(autoMessage);
+        this.contacts[this.counter].messages.push(autoMessage);
+        console.log(this.contacts[this.counter].messages);
+      }, 1000);
     },
+    // filtraChat(){
+    //   this.contacts[this.counter].name.forEach((item, i) => {
+    //     if (item == 'M') {
+    //       return item;
+    //     }
+    //   });
+    //
+    //
+    // },
   }
 
 });
