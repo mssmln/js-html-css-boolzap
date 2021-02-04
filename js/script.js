@@ -6,24 +6,15 @@
 // ● Visualizzazione dinamica dei messaggi: t ramite l a direttiva v-for, visualizzare tutti i messaggi relativi al contatto attivo all’interno del pannello della conversazione
 // ● Click sul contatto mostra l a conversazione del contatto cliccato
 // Milestone 3
-// ● Aggiunta di un messaggio: l ’utente scrive un testo nella parte bassa e digitando “enter” i l testo viene aggiunto al thread sopra, come messaggio verde
+// ● Aggiunta di un messaggio: l’utente scrive un testo nella parte bassa e digitando
+// “enter” il testo viene aggiunto al thread sopra, come messaggio verde
+// ● Risposta dall’interlocutore: ad ogni inserimento di un messaggio, l’utente riceverà
+// un “ok” come risposta, che apparirà dopo 1 secondo.
 
 var app = new Vue ({
   el : '#app',
   data : {
-    // arrayMessage: [], // pusho i nuovi messaggi da input tag
-    bell: [
-      {
-        family: 'fas',
-        prefix: 'fa-',
-        type: 'bell'
-      },
-      {
-        family: 'fas',
-        prefix: 'fa-',
-        type: 'bell-slash'
-      }
-    ],
+    notificheAttive: false,
     newMessage: '', // ci serve per il v-model, andrà sovrascritta
     counter: 0,
     user: {
@@ -126,15 +117,20 @@ var app = new Vue ({
       console.log(this.counter);
     },
     getNotified(){
-      alert('you have enabled desktop notifications');
+      if (!this.notificheAttive) {
+        alert('you have disabled desktop notifications');
+        this.notificheAttive = true;
+      } else  {
+        alert('you have enabled desktop notifications');
+        this.notificheAttive = false;
+      }
+      console.log(this.notificheAttive);
+    },
+    sendMessage(){
+      this.contacts[this.counter].messages.push(this.newMessage);
+      console.log(this.contacts[this.counter].messages);
 
     },
-    // sendMessage(){
-    //   this.arrayMessage.push(this.newMessage);
-    //   this.newMessage = ''; // per ripulirla all'invio
-    //   console.log(this.newMessage);
-    //
-    // },
   }
 
 });
