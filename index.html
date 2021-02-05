@@ -64,12 +64,23 @@
           <!-- con il v-if verrà mostrato li solo se visible corrisponde a true , non serve mettere una classe display none nella condizione grazie a Vue -->
           <li class="mouse-over" v-for="(contatto,index) in contacts" @click="showChat(index)" v-if="contatto.visible == true">
             <img :src="'img/avatar' + contatto.avatar + '.jpg'">
-            <h4>
-              {{ contatto.name }}
-            </h4>
-            <small>
-              
+            <span>
+              <h4>
+                {{ contatto.name }}
+              </h4>
+              <!-- visualizziamo solo l'ultimo messaggio con il più alto indice  -->
+              <p>
+                {{ contatto.messages[contatto.messages.length -1].text }}
+              </p>
+            </span>
+            <small >
+              {{ contatto.messages[contatto.messages.length -1].date }}
             </small>
+            <i class="fas fa-chevron-down" @click="tendina" >
+              <div class="tendina" @click="deleteChat(index)" :title="index">
+                delete chat
+              </div>
+            </i>
           </li>
         </ul>
       </div>
@@ -82,13 +93,15 @@
     <div class="right-panel">
       <div class="active-chat">
         <div class="profile-avatar">
-          <!-- <img src="img\avatar_io.jpg" alt="profile-avatar"> -->
           <img class="mouse-over" :src="'img/avatar' + contacts[counter].avatar + '.jpg'">
         </div>
         <span>
-          <h4>Michele</h4>
+          <h4 >
+            {{ contacts[counter].name }}
+          </h4>
           <h6 >
-            Ultimo accesso oggi alle
+            <!-- Ultimo accesso oggi alle -->
+            {{ contacts[counter].messages[contacts[counter].messages.length -1].date }}
           </h6>
         </span>
         <div class="active-chat-icons">
@@ -99,7 +112,7 @@
       </div>
       <div class="body-active-chat">
         <div class="messages">
-          <div v-for="messaggio in contacts[counter].messages" :class="messaggio.status" >
+          <div v-for="(messaggio,index) in contacts[counter].messages" :class="messaggio.status" :title="index" >
             <p>
               {{ messaggio.text }}
               <!-- {{ newMessage }} messo qua scriveva dentro il div e nel body -->
@@ -107,9 +120,11 @@
             <small>
               {{ messaggio.date }}
             </small>
-            <!-- <i class="fas fa-chevron-down">
-
-            </i> -->
+            <i class="fas fa-chevron-down" @click="tendina" >
+              <div class="tendina" @click="deleteMessage(index)" :title="index">
+                delete message
+              </div>
+            </i>
           </div>
         </div>
       </div>

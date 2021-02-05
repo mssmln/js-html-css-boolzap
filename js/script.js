@@ -135,7 +135,7 @@ var app = new Vue ({
     sendMessage(){
       const typeMessage = { // serve un nuovo oggetto da unirsi assieme agli altri con le stesse chiavi
         // date: dayjs.localeData, // con dayjs
-        date: moment().format('DD/MM/YYYY h:mm:ss '), // con momentjs
+        date: moment().format('H:mm '), // con momentjs
         text: this.newMessage,
         status: 'sent'
       };
@@ -147,7 +147,8 @@ var app = new Vue ({
 
       setTimeout(() => {
         const autoMessage = {
-          date: moment().format('DD/MM/YYYY h:mm:ss '),
+          // date: moment().format('DD/MM/YYYY H:mm:ss '),
+          date: moment().format('H:mm '),
           text: 'okay',
           status: 'received'
         };
@@ -161,6 +162,22 @@ var app = new Vue ({
         // con lower e upper ci assicuriamo di filtrare gli stessi risulati scrivendo in entrambi i modi
         (item.name.toLowerCase().includes(this.newSearch) || item.name.toUpperCase().includes(this.newSearch)) ? item.visible = true : item.visible = false ;
       });
+    },
+    tendina(){ // al click mostriamo il menu
+
+
+    },
+    deleteMessage(index){
+      // con questo log selezioniamo esattamente quel messaggio
+      console.log(this.contacts[this.counter].messages[index]);
+      console.log(this.contacts[this.counter].messages);
+      this.contacts[this.counter].messages.splice(index,1);
+    },
+    deleteChat(index){ // da terminare
+      console.log(this.contacts[index]);
+      this.contacts[this.counter].splice(index,1);
+
+
     },
   }
 

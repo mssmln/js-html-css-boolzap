@@ -167,22 +167,41 @@ body{
   background-color: rgba(89, 89, 89, 0.56);
 }
 
-.chats ul li:hover::after{
+/* ho bisogno di inserirlo nel DOM per @click di Vue */
+/* .chats ul li:hover::after{
   content: '\f078';
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   display: inline-block;
   position: absolute;
   right: 0;
-  /* bottom: 0; */ /* se lo attivi lo vedrai solo sul ultimo li, idem per top */
+   bottom: 0;   se lo attivi lo vedrai solo sul ultimo li, idem per top
   margin: 30px 15px 0 0;
   cursor: pointer;
+} */
+
+.chats ul li i{
+  position: absolute;
+  right: 0;
+  margin: 50px 10px 0 0;
+  display: none;
 }
 
-.chats ul li h4{
+.chats ul li span h4{
   text-transform: capitalize;
   margin-left: 10px;
 }
+
+.chats ul li span p{
+  margin: 5px 0 0 10px;
+}
+
+.chats ul li small{
+  position: absolute;
+  right: 0;
+  margin-right: 5px;
+}
+
 /* /chats */
 /* /left panel */
 
@@ -232,7 +251,18 @@ body{
   position: relative;
 }
 
-.sent:hover::after,
+.sent{
+  float: right;
+  background-color: rgb(129, 177, 114);
+}
+
+.received{
+  background-color: white;
+  float: left;
+}
+
+/* mi serve intervenire sul click ma non posso se lo lascio come pseudo elemento, deve essere nel DOM */
+/* .sent:hover::after,
 .received:hover::after{
   content: '\f078';
   font-family: "Font Awesome 5 Free";
@@ -243,17 +273,37 @@ body{
   top: 0;
   margin: 5px 10px 0 0;
   cursor: pointer;
+} */
+
+.sent i,
+.received i{
+  position: absolute;
+  right: 0;
+  top: 0;
+  margin: 5px 10px 0 0;
+  cursor: pointer;
+  display: none;
 }
 
-.sent{
-  float: right;
-  background-color: rgb(129, 177, 114);
+.sent:hover i,
+.received:hover i,
+.chats ul li:hover i{
+  display: inline-block;
 }
 
-.received{
-  background-color: white;
-  float: left;
+.sent i div.tendina,
+.received i div.tendina,
+.chats ul li i div.tendina{
+  width: 150px;
+  padding: 10px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  text-transform: capitalize;
+  background-color: red;
 }
+
 /* /body of chat */
 
 
