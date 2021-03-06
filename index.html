@@ -62,25 +62,33 @@
           </li> -->
           <!-- /li da test -->
           <!-- con il v-if verrà mostrato li solo se visible corrisponde a true , non serve mettere una classe display none nella condizione grazie a Vue -->
-          <li class="mouse-over" v-for="(contatto,index) in contacts" @click="showChat(index)" v-if="contatto.visible == true">
+          <li class="mouse-over" v-for="(contatto,index) in contacts" @click="showChat(index)"  v-if="contatto.visible == true">
             <img :src="'img/avatar' + contatto.avatar + '.jpg'">
             <span>
               <h4>
                 {{ contatto.name }}
               </h4>
               <!-- visualizziamo solo l'ultimo messaggio con il più alto indice  -->
-              <p>
+              <p v-if="contatto.messages.length > 0">
+                {{ contatto.messages[contatto.messages.length -1].text }}
+              </p>
+              <!-- test -->
+              <p v-else-if="contatto.length > 0">
                 {{ contatto.messages[contatto.messages.length -1].text }}
               </p>
             </span>
-            <small >
+            <small v-if="contatto.messages.length > 0">
+              {{ contatto.messages[contatto.messages.length -1].date }}
+            </small>
+            <!-- test -->
+            <small v-else-if="contatto.length > 0">
               {{ contatto.messages[contatto.messages.length -1].date }}
             </small>
             <i class="fas fa-chevron-down" @click="tendina" >
-              <div class="tendina" @click="deleteChat(index)" :title="index">
-                delete chat
-              </div>
             </i>
+            <!-- <div class="tendina" >
+              delete chat
+            </div> -->
           </li>
         </ul>
       </div>
@@ -99,7 +107,12 @@
           <h4 >
             {{ contacts[counter].name }}
           </h4>
-          <h6 >
+          <h6 v-if="contacts[counter].messages.length > 0">
+            <!-- Ultimo accesso oggi alle -->
+            {{ contacts[counter].messages[contacts[counter].messages.length -1].date }}
+          </h6>
+          <!-- test -->
+          <h6 v-else-if="contacts[counter].length > 0">
             <!-- Ultimo accesso oggi alle -->
             {{ contacts[counter].messages[contacts[counter].messages.length -1].date }}
           </h6>
@@ -120,11 +133,14 @@
             <small>
               {{ messaggio.date }}
             </small>
-            <i class="fas fa-chevron-down" @click="tendina" >
-              <div class="tendina" @click="deleteMessage(index)" :title="index">
-                delete message
-              </div>
+            <i class="fas fa-chevron-down" @click="tendina(index)" >
             </i>
+            <div class="tendina" @click="deleteMessage(index)" :title="index" :class="messaggio.tendina">
+              delete message
+            </div>
+            <!-- <div class="tendina" @click="emptyChat" :title="index" :class="messaggio.tendina">
+              empty chat
+            </div> -->
           </div>
         </div>
       </div>

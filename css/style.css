@@ -1,4 +1,9 @@
-
+.active{
+  display: inline-block;
+}
+.hidden{
+  display: none;
+}
 
 
 *{
@@ -291,17 +296,18 @@ body{
   display: inline-block;
 }
 
-.sent i div.tendina,
-.received i div.tendina,
-.chats ul li i div.tendina{
+.sent div.tendina,
+.received div.tendina,
+.chats ul li div.tendina{
   width: 150px;
   padding: 10px;
   position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+  right: 0;
+  top: 40%;
   text-align: center;
   text-transform: capitalize;
-  background-color: red;
+  cursor: pointer;
+  background-color: #ffffff;
 }
 
 /* /body of chat */

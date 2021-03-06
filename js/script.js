@@ -37,17 +37,22 @@ var app = new Vue ({
           {
             date: '10/01/2020 15:30:55',
             text: 'Hai portato a spasso il cane?',
-            status: 'sent'
+            status: 'sent',
+            tendina: 'hidden' // nome classe del css
           },
           {
             date: '10/01/2020 15:50:00',
             text: 'Ricordati di dargli da mangiare',
-            status: 'sent'
+            status: 'sent',
+            tendina: 'hidden' // nome classe del css
+
           },
           {
             date: '10/01/2020 16:15:22',
             text: 'Tutto fatto!',
-            status: 'received'
+            status: 'received',
+            tendina: 'hidden' // nome classe del css
+
           }
         ],
       },
@@ -59,17 +64,23 @@ var app = new Vue ({
           {
             date: '20/03/2020 16:30:00',
             text: 'Ciao come stai?',
-            status: 'sent'
+            status: 'sent',
+            tendina: 'hidden' // nome classe del css
+
           },
           {
             date: '20/03/2020 16:30:55',
             text: 'Bene grazie! Stasera ci vediamo?',
-            status: 'received'
+            status: 'received',
+            tendina: 'hidden' // nome classe del css
+
           },
           {
             date: '20/03/2020 16:35:00',
             text: 'Mi piacerebbe ma devo andare a fare la spesa.',
-            status: 'sent'
+            status: 'sent',
+            tendina: 'hidden' // nome classe del css
+
           }
         ],
       },
@@ -81,17 +92,23 @@ var app = new Vue ({
           {
             date: '28/03/2020 10:10:40',
             text: 'La Marianna va in campagna',
-            status: 'received'
+            status: 'received',
+            tendina: 'hidden' // nome classe del css
+
           },
           {
             date: '28/03/2020 10:20:10',
             text: 'Sicuro di non aver sbagliato chat?',
-            status: 'sent'
+            status: 'sent',
+            tendina: 'hidden' // nome classe del css
+
           },
           {
             date: '28/03/2020 16:15:22',
             text: 'Ah scusa!',
-            status: 'received'
+            status: 'received',
+            tendina: 'hidden' // nome classe del css
+
           }
         ],
       },
@@ -103,12 +120,16 @@ var app = new Vue ({
           {
             date: '10/01/2020 15:30:55',
             text: 'Lo sai che ha aperto una nuova pizzeria?',
-            status: 'sent'
+            status: 'sent',
+            tendina: 'hidden' // nome classe del css
+
           },
           {
             date: '10/01/2020 15:50:00',
             text: 'Si, ma preferirei andare al cinema',
-            status: 'received'
+            status: 'received',
+            tendina: 'hidden' // nome classe del css
+
           }
         ],
       },
@@ -137,7 +158,9 @@ var app = new Vue ({
         // date: dayjs.localeData, // con dayjs
         date: moment().format('H:mm '), // con momentjs
         text: this.newMessage,
-        status: 'sent'
+        status: 'sent',
+        tendina: 'hidden' // nome classe del css
+
       };
       if (this.newMessage.length > 0) {
         this.contacts[this.counter].messages.push(typeMessage);
@@ -150,7 +173,9 @@ var app = new Vue ({
           // date: moment().format('DD/MM/YYYY H:mm:ss '),
           date: moment().format('H:mm '),
           text: 'okay',
-          status: 'received'
+          status: 'received',
+          tendina: 'hidden' // nome classe del css
+
         };
         console.log(autoMessage);
         this.contacts[this.counter].messages.push(autoMessage);
@@ -163,7 +188,15 @@ var app = new Vue ({
         (item.name.toLowerCase().includes(this.newSearch) || item.name.toUpperCase().includes(this.newSearch)) ? item.visible = true : item.visible = false ;
       });
     },
-    tendina(){ // al click mostriamo il menu
+    tendina(index){ // al click mostriamo il menu
+      // con questo log selezioniano la classe hidden
+      console.log(this.contacts[this.counter].messages[index].tendina);
+      if (this.contacts[this.counter].messages[index].tendina == 'hidden') {
+        this.contacts[this.counter].messages[index].tendina = 'active';
+      } else {
+        this.contacts[this.counter].messages[index].tendina = 'hidden';
+      }
+
 
 
     },
@@ -173,12 +206,19 @@ var app = new Vue ({
       console.log(this.contacts[this.counter].messages);
       this.contacts[this.counter].messages.splice(index,1);
     },
-    deleteChat(index){ // da terminare
-      console.log(this.contacts[index]);
-      this.contacts[this.counter].splice(index,1);
+    emptyChat(){ // svuotate la chat
+      // console.log(this.contacts[index]);
+      this.contacts[this.counter].messages.splice(0);
+      // this.contacts[index] = [];
 
 
     },
+    test(index){ // proviamo a cancellare tutta la li
+      console.log(this.contacts[index]);
+
+      this.contacts[index] = '';
+      console.log(this.contacts[index]);
+    }
   }
 
 });
